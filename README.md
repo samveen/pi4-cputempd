@@ -1,6 +1,6 @@
 ## Temperature Logger Daemon For My Raspberry Pi 4
 
-I wanted to test how the cheap heatsinks I got for my Raspberry Pi 4 performed,
+I wanted to test how the cheap heat-sinks I got for my Raspberry Pi 4 performed,
 especially when in the official case versus the same without the cover. For that
 I wanted to first log the CPU temperature somewhere. While writing the bash
 script to log it, I thought of using some pre-built tools (like collectd,statsd
@@ -20,7 +20,7 @@ unit (a simple one) and log the temperature to the journal. This is the result.
 
 # Checking The Output
 
-The service logs for the unit contain the teperature data. It can be seen with
+The service logs for the unit contain the temperature data. It can be seen with
 - `journalctl -u pi-cputempd`
 
 

@@ -1,5 +1,5 @@
 [Unit]
-Description=System termerature logger for Raspberry Pi4
+Description=System temperature logger for Raspberry Pi4
 StartLimitIntervalSec=10
 
 [Service]

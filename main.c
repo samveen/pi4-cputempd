@@ -18,7 +18,7 @@ volatile sig_atomic_t done = 0;
 
 char term_msg[]="Received SIGTERM. Terminating\n";
 void handler(int signum) {
-    if(signum=SIGTERM) {
+    if(signum==SIGTERM) {
         done = 1;
         write(2,term_msg,sizeof(term_msg));
     }
@@ -51,7 +51,7 @@ int main(int argc, char* argv[]) {
     // main loop
     while(!done) {
         // Always read from the beginning.
-        valsize=pread(readfd,val,127,0u);
+        valsize=pread(readfd,val,sizeof(val)-1,0u);
         val[valsize]='\0';
 
         // We're assuming a whitespace in the read, no whitespace added.
