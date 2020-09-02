@@ -1,12 +1,12 @@
 ## Temperature Logger Daemon For My Raspberry Pi 4
 
-I wanted to test how the cheap heatsinks I got for my Raspberry Pi 4 performed
-especially when in the official case against the official case without the
-cover. For that I wanted to first log the CPU temperature somewhere. While
-writing the bash script to log it, I thought why not use some pre-built tool,
-which are in abundance. However, a quick 5 minute search showed me that all
-the available tools were probably overkill. However, seeing that most tools
-were daemons, I decided to write up a quick daemon that would run as a systemd
+I wanted to test how the cheap heatsinks I got for my Raspberry Pi 4 performed,
+especially when in the official case versus the same without the cover. For that
+I wanted to first log the CPU temperature somewhere. While writing the bash
+script to log it, I thought of using some pre-built tools (like collectd,statsd
+etc.) which are in abundance. However, a quick 5 minute search showed me that
+all the available tools were extreme overkill. However, seeing that most tools
+were daemons, I decided to write up a quick binary that would run as a systemd
 unit (a simple one) and log the temperature to the journal. This is the result.
 
 # Building And Running
