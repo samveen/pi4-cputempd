@@ -4,10 +4,11 @@ StartLimitIntervalSec=10
 
 [Service]
 Type=simple
+EnvironmentFile=/etc/pi4-cputempd.conf
 Restart=always
 RestartSec=1
 StartLimitBurst=2
-ExecStart=/usr/local/bin/pi4-cputempd
+ExecStart=/usr/local/bin/pi4-cputempd -t ${SECS}
 
 [Install]
 WantedBy=default.target

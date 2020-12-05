@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <string.h>
 
 #include <sys/types.h>
@@ -34,7 +35,27 @@ int main(int argc, char* argv[]) {
     ssize_t bufsize=0, valsize=0;
 
     time_t t;
-    uint64_t secs=10u;
+    int opt;
+    uint64_t secs=0;
+
+    while((opt = getopt(argc, argv, "t:")) != -1) {
+        switch (opt) {
+        case 't':
+            secs = strtoull(optarg, NULL, 10);
+            break;
+        default: /* '?' */
+            fprintf(stderr, "Usage: %s [-t nsecs]\n", argv[0]);
+            exit(EXIT_FAILURE);
+        }
+    }
+
+    if(secs <= 0)
+        secs = 30u;
+
+    if (optind < argc) {
+        fprintf(stderr, "Unexpected argument.\n");
+        exit(EXIT_FAILURE);
+    }
 
     // Graceful termination with SIGTERM
     struct sigaction action;
